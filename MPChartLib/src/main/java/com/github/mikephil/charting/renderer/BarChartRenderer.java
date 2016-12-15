@@ -1,10 +1,11 @@
-
 package com.github.mikephil.charting.renderer;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.buffer.BarBuffer;
@@ -163,6 +164,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
             }
 
             // Hack to make fixed width bars
+            mRenderPaint.setShader(new LinearGradient(0, buffer.buffer[j + 1], 0, buffer.buffer[j + 3], Color.parseColor("#0078d2"), Color.parseColor("#005799"), Shader.TileMode.CLAMP));
             float mid = (buffer.buffer[j] + buffer.buffer[j + 2]) / 2;
 
             float cornerRadius = mChart.barCornerRadius();

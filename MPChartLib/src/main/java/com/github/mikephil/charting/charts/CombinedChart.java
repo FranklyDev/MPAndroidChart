@@ -226,4 +226,9 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
             return;
         mDrawOrder = order;
     }
+
+    public float barCornerRadius() {
+        return 0.0f;
+    }
+
 }

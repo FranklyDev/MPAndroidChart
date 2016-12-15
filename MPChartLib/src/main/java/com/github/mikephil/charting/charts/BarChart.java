@@ -38,6 +38,8 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
 
     private boolean mFitBars = false;
 
+    private float mCornerRadius = 10.0f;
+
     public BarChart(Context context) {
         super(context);
     }
@@ -160,6 +162,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
         mDrawValueAboveBar = enabled;
     }
 
+
     /**
      * returns true if drawing values above bars is enabled, false if not
      *
@@ -255,4 +258,13 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
             notifyDataSetChanged();
         }
     }
+
+    public void setBarCornerRadius(float cornerRadius) {
+        mCornerRadius = cornerRadius;
+    }
+
+    public float barCornerRadius() {
+        return mCornerRadius;
+    }
+
 }

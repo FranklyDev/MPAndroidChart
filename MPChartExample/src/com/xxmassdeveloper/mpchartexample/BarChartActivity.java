@@ -65,6 +65,7 @@ public class BarChartActivity extends DemoBase implements OnSeekBarChangeListene
 
         mChart.setDrawBarShadow(false);
         mChart.setDrawValueAboveBar(true);
+        mChart.setBarCornerRadius(50.0f);
 
         mChart.getDescription().setEnabled(false);
 

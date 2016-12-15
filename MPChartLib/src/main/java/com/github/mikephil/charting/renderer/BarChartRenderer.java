@@ -126,7 +126,8 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
                 mBarShadowRectBuffer.top = mViewPortHandler.contentTop();
                 mBarShadowRectBuffer.bottom = mViewPortHandler.contentBottom();
 
-                c.drawRect(mBarShadowRectBuffer, mShadowPaint);
+                float cornerRadius = mChart.barCornerRadius();
+                c.drawRoundRect(mBarShadowRectBuffer, cornerRadius, cornerRadius, mShadowPaint);
             }
         }
 
@@ -161,12 +162,13 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
                 mRenderPaint.setColor(dataSet.getColor(j / 4));
             }
 
-            c.drawRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
-                    buffer.buffer[j + 3], mRenderPaint);
+            float cornerRadius = mChart.barCornerRadius();
+            c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
+                    buffer.buffer[j + 3], cornerRadius, cornerRadius, mRenderPaint);
 
             if (drawBorder) {
-                c.drawRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
-                        buffer.buffer[j + 3], mBarBorderPaint);
+                c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
+                        buffer.buffer[j + 3], cornerRadius, cornerRadius, mBarBorderPaint);
             }
         }
     }
@@ -380,7 +382,8 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
             setHighlightDrawPos(high, mBarRect);
 
-            c.drawRect(mBarRect, mHighlightPaint);
+            float cornerRadius = mChart.barCornerRadius();
+            c.drawRoundRect(mBarRect, cornerRadius, cornerRadius, mHighlightPaint);
         }
     }
 
@@ -395,4 +398,5 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
     @Override
     public void drawExtras(Canvas c) {
     }
+
 }

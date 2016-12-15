@@ -162,9 +162,11 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
                 mRenderPaint.setColor(dataSet.getColor(j / 4));
             }
 
+            // Hack to make fixed width bars
+            float mid = (buffer.buffer[j] + buffer.buffer[j + 2]) / 2;
+
             float cornerRadius = mChart.barCornerRadius();
-            c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
-                    buffer.buffer[j + 3], cornerRadius, cornerRadius, mRenderPaint);
+            c.drawRoundRect(mid - 6, buffer.buffer[j + 1], mid + 6, buffer.buffer[j + 3], cornerRadius, cornerRadius, mRenderPaint);
 
             if (drawBorder) {
                 c.drawRoundRect(buffer.buffer[j], buffer.buffer[j + 1], buffer.buffer[j + 2],
